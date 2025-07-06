@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroAI - Crop Disease Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="static/js/app.js" defer></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>AgroAI: AI-Driven Crop Disease Diagnosis</h1>
+            <p>Empowering farmers with real-time disease detection and actionable insights.</p>
+            <button class="btn btn-primary" onclick="scrollToUpload()">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="flex-container">
+            <!-- About Section -->
+            <section class="about-section">
+                <h2>About AgroAI</h2>
+                <p>AgroAI is an innovative application designed to help farmers and agricultural professionals identify crop diseases through image recognition. By simply uploading an image of your plant, you can quickly determine its health status and receive guidance on how to manage any detected diseases.</p>
+
+                <h3>5 Most Identified Crop Diseases in India</h3>
+                <ul>
+                    <li>Bacterial Blight</li>
+                    <li>Powdery Mildew</li>
+                    <li>Rust Disease</li>
+                    <li>Fusarium Wilt</li>
+                    <li>Downy Mildew</li>
+                </ul>
+            </section>
+
+            <!-- Upload Section -->
+            <section class="upload-container">
+                <h2>Upload Image</h2>
+                <p>Detect crop diseases by uploading an image.</p>
+                <div class="container" align="center">
+                    <form action="/" method="post" enctype="multipart/form-data">
+                        <input type="file" id="file" name="file" accept="image/*" hidden>
+                        <div class="img-area" data-img="">
+                            <div id="loading-spinner" class="loading-spinner" style="display: none;"></div>
+                            <img id="previewImg" src="static/images/placeholder-crop.png" alt="Image Preview" class="preview-img">
+                            <p>Upload an image of your crop to detect diseases.</p>
+                        </div>
+                        <div class="button-group">
+                            <button class="btn btn-primary select-image" type="button">Select Image</button>
+                            <button class="btn btn-secondary submit-image" type="submit">Predict</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="how-it-works-section">
+                <h2>How It Works</h2>
+                <ol>
+                    <li><strong>Select an Image:</strong> Click the "Select Image" button to choose a picture of your plant.</li>
+                    <li><strong>Upload the Image:</strong> After selecting, hit the "Predict" button to upload the image for analysis.</li>
+                    <li><strong>Receive Results:</strong> Instantly, you will get a diagnosis and recommendations for managing any diseases detected.</li>
+                </ol>
+
+                <h3>5 Most Effective Fertilizers</h3>
+                <ul>
+                    <li>Urea</li>
+                    <li>DAP (Diammonium Phosphate)</li>
+                    <li>Potassium Chloride</li>
+                    <li>Ammonium Sulfate</li>
+                    <li>Calcium Nitrate</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Script for Image Preview and Loading Animation -->
+    <script>
+        const fileInput = document.getElementById('file');
+        const selectImageBtn = document.querySelector('.select-image');
+        const previewImg = document.getElementById('previewImg');
+        const loadingSpinner = document.getElementById('loading-spinner');
+
+        selectImageBtn.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    previewImg.src = event.target.result;
+                    previewImg.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function scrollToUpload() {
+            const uploadSection = document.querySelector('.upload-container');
+            uploadSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

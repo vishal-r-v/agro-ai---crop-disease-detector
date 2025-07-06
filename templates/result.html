@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroAI - Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="static/js/app.js" defer></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>AgroAI: AI-Driven Crop Disease Diagnosis</h1>
+            <p>Empowering farmers with real-time disease detection and actionable insights.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="upload-container">
+            <div class="result-container">
+                <h2>Prediction Result</h2>
+                <div class="prediction-card">
+                    <div class="label">Prediction: <span>{{ label }}</span></div>
+                    <div class="description">{{ description }}</div>
+                    <button class="btn btn-primary upload-another" type="button" onclick="window.location.href='/'">Upload Another Image</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Script for Scroll to Upload Section -->
+    <script>
+        function scrollToUpload() {
+            const uploadSection = document.querySelector('.upload-container');
+            uploadSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
