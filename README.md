@@ -90,10 +90,10 @@ AGRO_AI/
    Put your trained model file as:
    plant_disease_prediction_model.h5
 
-4.Run the app
+4. Run the app
    python app.py
 
-5.Use
+5. Use
    Open browser at http://127.0.0.1:5000, 
    upload a leaf image, 
    and get results.
